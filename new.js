@@ -258,7 +258,8 @@ async function processAccount(token, proxy, uploadCount) {
 
       uploadSpinner.text = ' Mengirim Invoice...';
       await axios.post('https://api-v2.polyflow.tech/api/scan2earn/save_invoice', {
-        invoice_path: presignedData.key
+        invoice_path: presignedData.key,
+        merchant_pid: "NEXO"
       }, getAxiosConfig(token, proxy));
 
       uploadSpinner.succeed(chalk.greenBright(` Invoice ${j + 1}/${uploadCount} Berhasil Diunggah`) + chalk.gray(` - Filename: ${filename}`));
